@@ -1,21 +1,39 @@
 import os
 
-# Module for reading CSV files
 import csv
 
 csvpath = os.path.join('Resources', 'budget_data.csv')
+    
+with open(csvpath) as csvfile:
+    
+    row_count =sum(1 for row in csvfile)
+
+print (f"Total Months: {row_count-1}")
 
 with open(csvpath) as csvfile:
 
-    # CSV reader specifies delimiter and variable that holds contents
-    csvreader = csv.reader(csvfile, delimiter=',')
+    csvreader=csv.reader(csvfile, delimiter=',')
 
     print(csvreader)
 
-    # Read the header row first (skip this step if there is now header)
-    csv_header = next(csvreader)
-    print(f"CSV Header: {csv_header}")
+    csv_header=next(csvreader)
 
-    # Read each row of data after the header
-    for row in csvreader:
-        print(row)
+    profits_losses=[int()]
+
+    for row in csvreader: 
+        profits_losses.append(row[1])
+
+profits_losses=[int(i) for i in profits_losses]
+
+def sum(data):
+    total=0
+    for row in data:
+        total += row
+    return total
+
+total=sum(profits_losses)
+
+print(total)
+
+
+
