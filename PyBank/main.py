@@ -49,4 +49,16 @@ print(f"Average Change: ${round(avg_change)}")
 print(f"Greatest Increase in Profits: {max_change_date} ${max_change}")
 print(f"Greatest Decrease in Profits: {min_change_date} ${min_change}")
 
+output_path = os.path.join("analysis", "analysis.txt")
 
+# Open the file using "write" mode. Specify the variable to hold the contents
+
+with open(output_path, 'w') as writer:
+ 
+    writer.write("Financial Analysis\n")
+    writer.write("----------------------------\n")
+    writer.write(f"Total Months: {len(date)}\n")
+    writer.write(f"Total: ${sum(profit_loses)}\n")
+    writer.write(f"Average Change: ${round(avg_change)}\n")
+    writer.write(f"Greatest Increase in Profits: {max_change_date} ${max_change}\n")
+    writer.write(f"Greatest Decrease in Profits: {min_change_date} ${min_change}\n")
