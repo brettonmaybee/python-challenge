@@ -44,8 +44,29 @@ with open(csvpath) as csvfile:
 
 
 
-    #for c in canidates:
+# Count Each Canidates Total Votes
+    votes_per_can = [None] * len(canidates);    
+    counted = -1;
+
+    for i in range(0, len(canidates)):    
+        count = 1;    
+    for j in range(i+1, len(canidates)):    
+        if(canidates[i] == canidates[j]):    
+            count = count + 1;    
+            #To avoid counting same element again    
+            votes_per_can[j] = counted;    
+                
+    if(votes_per_can[i] != visited):    
+        votes_per_can[i] = count;    
     
+    #Displays the frequency of each element present in array    
+        print("---------------------");    
+        print(" Canidate | Votes");    
+        print("---------------------");    
+    for i in range(0, len(votes_per_can)):    
+        if(votes_per_can[i] != visited):    
+            print("    " + str(canidates[i]) + "    |    " + str(votes_per_can[i]));    
+            print("---------------------");    
     #for i in range(1,len(csvreader)):
 
 
