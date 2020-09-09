@@ -3,18 +3,11 @@ import csv
 
 csvpath = os.path.join('Resources', 'budget_data.csv')
 
-#def budget_data(data): 
-    
-    #date = str(data[0])
-    
-    #profit_loses = int(data[1])
-    
-    #for rows in range(1)
-     #   if 
+
    
 with open(csvpath, 'r') as csvfile:
 
-    # Split the data on commas
+    
     csvreader = csv.reader(csvfile, delimiter=',')
 
     header = next(csvreader)
@@ -51,7 +44,7 @@ print(f"Greatest Decrease in Profits: {min_change_date} ${min_change}")
 
 output_path = os.path.join("analysis", "analysis.txt")
 
-# Open the file using "write" mode. Specify the variable to hold the contents
+
 
 with open(output_path, 'w') as writer:
  
