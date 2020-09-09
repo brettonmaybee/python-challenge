@@ -11,10 +11,9 @@ with open(csvpath) as csvfile:
 
     csv_header=next(csvreader)
 
-    #total_months =sum(1 for row in csvfile)
-    total_months=len(csvreader)
+    total_months =sum(1 for row in csvfile)
     
- 
+    
 with open(csvpath) as csvfile:
 
     csvreader=csv.reader(csvfile, delimiter=',')
@@ -26,7 +25,7 @@ with open(csvpath) as csvfile:
     for row in csvreader: 
         profits_losses.append(row[1])
 
-p_l_int=[int(i) for i in profits_losses]
+p_l_float=[float(i) for i in profits_losses]
 
 def sum(data):
     total=0
@@ -34,7 +33,7 @@ def sum(data):
         total += x
     return total
 
-total=sum(p_l_int)
+total=sum(p_l_float)
 
 
 def mean(data):
@@ -44,7 +43,7 @@ def mean(data):
         average=total/len(data)
     return average
 
-average=mean(p_l_int)
+average=mean(p_l_float)
 
 
 def change(data):
@@ -58,8 +57,12 @@ def change(data):
 
 print("Financial Analysis")
 print("----------------------------")
-print(f"Total Months: {total_months}")"
+print(f"Total Months: {total_months}")
 print(f"Total: ${total}")
-print(f"Average  Change: ${avg_change}")
-print(f"Greatest Increase in Profits: {max_row[0]} ${max_row[1]}")
-print(f"Greatest Decrease in Profits: {min_row[0]} ${min_row[1]}")
+
+
+print(change(p_l_float))
+#print(change(p_l_int))
+#print(f"Average  Change: ${avg_change}")
+#print(f"Greatest Increase in Profits: {max_row[0]} ${max_row[1]}")
+#print(f"Greatest Decrease in Profits: {min_row[0]} ${min_row[1]}")
